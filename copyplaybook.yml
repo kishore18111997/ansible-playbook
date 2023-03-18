@@ -1,0 +1,10 @@
+---
+- name: copy files from ansible to other
+  hosts: all
+  become: true
+
+  tasks:
+  - name: copy files from ansible to other
+    ansible.builtin.copy:
+      src: /home/ubuntu/raw-code/tets.html
+      dest: /home

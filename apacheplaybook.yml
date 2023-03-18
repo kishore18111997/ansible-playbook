@@ -1,0 +1,12 @@
+---
+- name: install & start apache 2.0
+  hosts: artifacts
+  become: true
+
+  tasks:
+  - name: install apache
+    ansible.builtin.package:
+      state: latest
+      name: apache2
+
+  

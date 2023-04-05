@@ -1,0 +1,10 @@
+---
+- name: install maven
+  hosts: maven
+  become: true
+
+  tasks:
+  - name: install maven
+    ansible.builtin.apt:
+      name: maven
+      state: present

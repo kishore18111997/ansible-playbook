@@ -6,20 +6,20 @@
   vars:
     dockerhub_username: kishore18111997
     dockerhub_password: dckr_pat_vMIyAbJdfl-K_yAzmiywXEis2Ws
-    image_name: kishore18111997/tomcatproject
+    image_name: kishore18111997/deploytomcat
     image_tag: 1
 
   tasks:
-  - name: Execute the command in remote shell; stdout goes to the specified file on the remote
+  - name: change dir to /opt/docker
     ansible.builtin.shell: cd /opt/docker
 
-  - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-    ansible.builtin.shell: docker build -t kishore18111997/tomcatproject .
+  - name: execute shell command to build dockerfile
+    ansible.builtin.shell: docker build -t kishore18111997/deploytomcat /opt/docker
 
   - name: Log into DockerHub
     docker_login:
       username: kishore18111997
       password: dckr_pat_vMIyAbJdfl-K_yAzmiywXEis2Ws
 
-  - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-    ansible.builtin.shell: docker push kishore18111997/tomcatproject
+  - name: Execute the command to push the image to dockerhub
+    ansible.builtin.shell: docker push kishore18111997/deploytomcat

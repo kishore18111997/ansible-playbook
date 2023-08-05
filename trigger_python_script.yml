@@ -1,0 +1,8 @@
+---
+- name: trigger python script
+  hosts: windows
+  gather_facts: false
+
+  tasks:
+  - name: trigger popup script
+    ansible.builtin.script: C:\Users\Administrator\AppData\Local\Programs\Python\Python311\popup.py
